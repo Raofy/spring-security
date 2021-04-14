@@ -25,6 +25,12 @@ public class SpringIoc {
         return userDetailsRepository;
     }
 
+    /**
+     * 实现UserDetailsManager接口，通过委托的方式交付给UserDetailRepository类实现权限校验逻辑
+     *
+     * @param userDetailsRepository
+     * @return
+     */
     @Bean
     public UserDetailsManager userDetailsManager(UserDetailsRepository userDetailsRepository) {
         return new UserDetailsManager() {
